@@ -1,23 +1,26 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello, world! · ESP32-S3</title>
-  <style>
-    :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
-    body { max-width: 44rem; margin: 4rem auto; padding: 0 1rem; }
-    h1 { font-size: 2rem; margin-bottom: .35rem; }
-    p { margin: 0 0 1.25rem; }
-    pre { padding: 1.25rem; overflow-x: auto; border-radius: .6rem; background: #16251f; color: #e4f5eb; }
-    code { font: .95rem/1.6 ui-monospace, monospace; }
-  </style>
-</head>
-<body>
-  <main>
-    <h1>Hello, world!</h1>
-    <p>Arduino C++ for the Waveshare ESP32-S3-Touch-LCD-1.28</p>
-    <pre><code>#include &lt;TFT_eSPI.h&gt;
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hello, world! · Roundbench</title>
+<style>
+:root{color-scheme:light;font:16px/1.5 "DM Sans",system-ui,sans-serif;color:#20332b;background:#f4f7f5}
+*{box-sizing:border-box}body{margin:0}main{width:min(1040px,92%);margin:3.5rem auto}
+header{margin-bottom:1.6rem}h1{font-family:Georgia,serif;font-weight:500;font-size:clamp(2.5rem,6vw,4rem);letter-spacing:-.05em;line-height:1.05;margin:0 0 .5rem}
+header p,footer{color:#52665c}header p{margin:0}article{display:grid;grid-template-columns:minmax(0,.93fr) minmax(0,1.07fr);gap:1rem}
+section{background:#fff;border:1px solid #ccdad2;border-radius:14px;overflow:hidden}
+h2{font-size:1rem;font-weight:650;margin:0;padding:13px 20px;border-bottom:1px solid #d8e2dc}
+.stage{display:grid;place-items:center;background-color:#eaf1ec;background-image:radial-gradient(#b9c9bf 1px,transparent 1px);background-size:15px 15px;padding:1.4rem}
+canvas{width:min(100%,260px);height:auto;aspect-ratio:1;border-radius:50%;background:black;border:8px solid #263a31;box-shadow:0 6px 12px #20372b26;image-rendering:pixelated}
+form{padding:1rem 1.2rem}label{display:block;font-weight:650;margin-bottom:.35rem}.row{display:flex;gap:.5rem}input,button{font:inherit;border-radius:6px;padding:.45rem .75rem}input{width:0;flex:1;min-width:0;border:1px solid #8da698}button{background:#194a37;border:0;color:white;font-weight:600;cursor:pointer}button:disabled{opacity:.65}#status{margin:.5rem 0 0;font-size:.86rem;color:#435b50;min-height:1.35rem}
+pre{padding:1rem 1.2rem;margin:0;overflow:auto;color:#e4f5eb;background:#16251f;flex:1}
+code{font: .86rem/1.65 ui-monospace,monospace}.source{display:flex;flex-direction:column}footer{margin-top:1rem;font-size:.85rem}a{color:#305e49}
+@media(max-width:720px){main{margin:1.5rem auto}article{grid-template-columns:1fr}}
+</style></head>
+<body><main><header><h1>Hello, world!</h1><p>Waveshare ESP32-S3-Touch-LCD-1.28</p></header>
+<article><section><h2>Display preview</h2><div class="stage"><canvas id="lcd" width="240" height="240" role="img" aria-label="Round LCD preview"></canvas></div>
+<form id="controls"><label for="greeting">Greeting</label><div class="row"><input id="greeting" name="greeting" value="Hello, world!" maxlength="19" required autocomplete="off"><button id="run" disabled>Run sketch</button></div>
+<p id="status" role="status">Loading the display…</p></form></section>
+<section class="source"><h2>Arduino C++</h2><pre><code id="sketch">#include &lt;TFT_eSPI.h&gt;
 
 TFT_eSPI screen;
 
@@ -34,7 +37,6 @@ void setup() {
 }
 
 void loop() {}
-</code></pre>
-  </main>
-</body>
-</html>
+</code></pre></section></article>
+<footer><a href="./gfx-license.txt">Display library license</a></footer>
+</main><script src="./demo.js"></script></body></html>
