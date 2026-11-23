@@ -1,0 +1,9 @@
+Browser compiler: Clang/LLD in WebAssembly by the WebAssembly Community Group participants.
+https://github.com/binji/wasm-clang/tree/648c4a89997a351eef75cdaec3ef5b89d4937dec
+shared.js, clang, lld, memfs and sysroot.tar are from that revision. The four binary assets are gzip compressed for distribution. See LICENSE and LICENSE.llvm in this directory.
+
+Delay suspension: Binaryen 121.0.0 by the Binaryen Authors.
+https://github.com/WebAssembly/binaryen
+binaryen.mjs is the npm binaryen@121.0.0 distribution's index.js. See LICENSE.binaryen.
+
+The display rasterizer and classic font are Adafruit GFX; see ../gfx-license.txt.

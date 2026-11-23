@@ -11,16 +11,17 @@ section{background:#fff;border:1px solid #ccdad2;border-radius:14px;overflow:hid
 h2{font-size:1rem;font-weight:650;margin:0;padding:13px 20px;border-bottom:1px solid #d8e2dc}
 .stage{display:grid;place-items:center;background-color:#eaf1ec;background-image:radial-gradient(#b9c9bf 1px,transparent 1px);background-size:15px 15px;padding:1.4rem}
 canvas{width:min(100%,260px);height:auto;aspect-ratio:1;border-radius:50%;background:black;border:8px solid #263a31;box-shadow:0 6px 12px #20372b26;image-rendering:pixelated}
-form{padding:1rem 1.2rem}label{display:block;font-weight:650;margin-bottom:.35rem}.row{display:flex;gap:.5rem}input,button{font:inherit;border-radius:6px;padding:.45rem .75rem}input{width:0;flex:1;min-width:0;border:1px solid #8da698}button{background:#194a37;border:0;color:white;font-weight:600;cursor:pointer}button:disabled{opacity:.65}#status{margin:.5rem 0 0;font-size:.86rem;color:#435b50;min-height:1.35rem}
-pre{padding:1rem 1.2rem;margin:0;overflow:auto;color:#e4f5eb;background:#16251f;flex:1}
-code{font: .86rem/1.65 ui-monospace,monospace}.source{display:flex;flex-direction:column}footer{margin-top:1rem;font-size:.85rem}a{color:#305e49}
+.controls{padding:1rem 1.2rem}.row{display:flex;gap:.5rem;flex-wrap:wrap}button{font:inherit;border-radius:6px;padding:.45rem .75rem;background:#194a37;color:white;border:0;font-weight:600;cursor:pointer}button:disabled{opacity:.65}#status{margin:.5rem 0 0;font-size:.86rem;color:#435b50;min-height:1.35rem}.source{display:flex;flex-direction:column}footer{margin-top:1rem;font-size:.85rem}a{color:#305e49}pre{padding:1rem 1.2rem;margin:0;overflow:auto;color:#e4f5eb;background:#16251f}
 @media(max-width:720px){main{margin:1.5rem auto}article{grid-template-columns:1fr}}
+
+textarea{display:block;width:100%;flex:1;min-height:370px;resize:vertical;box-sizing:border-box;border:0;padding:1rem 1.15rem;background:#16251f;color:#e4f5eb;caret-color:white;font:14px/1.6 ui-monospace,monospace;tab-size:2;outline-offset:-3px}textarea:focus-visible{outline:2px solid #8bdfb7}.row{flex-wrap:wrap}.secondary{color:#214937;background:#e3eee7}#lcd{touch-action:none}#console{margin-top:1rem}#console pre{min-height:2rem;max-height:12rem;white-space:pre-wrap;overflow-wrap:anywhere}#status[data-error]{color:#8c2c21}#editorbar{display:flex;align-items:center;justify-content:space-between;padding-right:.9rem;border-bottom:1px solid #d8e2dc}#editorbar h2{border:0}.source .restore{font-size:.85rem;padding:.25rem .5rem}footer a{margin-right:1rem}
 </style></head>
 <body><main><header><h1>Hello, world!</h1><p>Waveshare ESP32-S3-Touch-LCD-1.28</p></header>
 <article><section><h2>Display preview</h2><div class="stage"><canvas id="lcd" width="240" height="240" role="img" aria-label="Round LCD preview"></canvas></div>
-<form id="controls"><label for="greeting">Greeting</label><div class="row"><input id="greeting" name="greeting" value="Hello, world!" maxlength="19" required autocomplete="off"><button id="run" disabled>Run sketch</button></div>
-<p id="status" role="status">Loading the display…</p></form></section>
-<section class="source"><h2>Arduino C++</h2><pre><code id="sketch">#include &lt;TFT_eSPI.h&gt;
+<div class="controls"><div class="row"><button id="run" type="button">Run sketch</button><button class="secondary" id="stop" type="button" disabled>Stop</button></div>
+<p id="status" role="status">Loading the display…</p></div></section>
+<section class="source"><div id="editorbar"><h2><label for="sketch">Arduino C++ editor</label></h2><button class="restore secondary" type="button" id="reset">Restore example</button></div>
+<textarea spellcheck="false" autocapitalize="off" aria-label="Arduino C++ sketch" id="sketch">#include &lt;TFT_eSPI.h&gt;
 
 TFT_eSPI screen;
 
@@ -37,6 +38,8 @@ void setup() {
 }
 
 void loop() {}
-</code></pre></section></article>
-<footer><a href="./gfx-license.txt">Display library license</a></footer>
-</main><script src="./demo.js"></script></body></html>
+</textarea></section></article>
+<section id="console"><h2>Console</h2><pre id="log"></pre></section>
+<details><summary>What can I run?</summary><p>Edit setup() and loop(), then select Run sketch (⌘/Ctrl + Enter). The first edit downloads a C++ compiler. Compilation runs in your browser. The preview supports common TFT_eSPI drawing calls, Serial, Arduino timing, and CST816S touch-coordinate reads via Wire. Declare helper functions before calling them. Board-specific libraries and hardware peripherals need a local build.</p></details>
+<footer><a href="./gfx-license.txt">Graphics license</a><a href="./compiler/NOTICE.txt">Compiler credits</a></footer>
+</main><script src="./demo.js?v=editor1"></script></body></html>
