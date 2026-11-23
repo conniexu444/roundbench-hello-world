@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hello, world! · ESP32-S3</title>
+  <style>
+    :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
+    body { max-width: 44rem; margin: 4rem auto; padding: 0 1rem; }
+    h1 { font-size: 2rem; margin-bottom: .35rem; }
+    p { margin: 0 0 1.25rem; }
+    pre { padding: 1.25rem; overflow-x: auto; border-radius: .6rem; background: #16251f; color: #e4f5eb; }
+    code { font: .95rem/1.6 ui-monospace, monospace; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Hello, world!</h1>
+    <p>Arduino C++ for the Waveshare ESP32-S3-Touch-LCD-1.28</p>
+    <pre><code>#include &lt;TFT_eSPI.h&gt;
+
+TFT_eSPI screen;
+
+void setup() {
+  pinMode(2, OUTPUT);
+  digitalWrite(2, HIGH);  // Turn on the screen backlight.
+
+  screen.init();
+  screen.fillScreen(TFT_BLACK);
+  screen.setTextColor(TFT_WHITE);
+  screen.setTextSize(2);
+  screen.setCursor(42, 112);
+  screen.print("Hello, world!");
+}
+
+void loop() {}
+</code></pre>
+  </main>
+</body>
+</html>
